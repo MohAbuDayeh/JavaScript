@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercises</title>
+</head>
+<body>
+    <h1>JavaScript Exercises</h1>
+    <div id="output"></div>
+    
+    <script>
+        // 1- Declare a variable called "name" and assign it the value "John".
+        let name = "John";
+
+        // 2- Declare a constant called "PI" and assign it the value 3.14.
+        const PI = 3.14;
+
+        // 3- Declare a variable called "age" and assign it your age.
+        let age = 25;
+
+        // 4- Declare a variable called "isStudent" and assign it a boolean value.
+        let isStudent = true;
+
+        // 5- Create a string variable called "message" and assign it a message of your choice.
+        let message = "Learning JavaScript is fun!";
+
+        // 6- Use template literals to create a string that includes the variables "name" and "age".
+        let introduction = `My name is ${name} and I am ${age} years old.`;
+
+        // 7- Use the string method "length" to find the length of the string "message".
+        let messageLength = message.length;
+
+        // 8- Use the string method "toUpperCase()" to convert the string "message" to uppercase.
+        let upperCaseMessage = message.toUpperCase();
+
+        // 9- Use the string method "toLowerCase()" to convert the string "message" to lowercase.
+        let lowerCaseMessage = message.toLowerCase();
+
+        // 10- Use the string method "indexOf()" to find the position of the word "JavaScript" in the string "I love learning JavaScript".
+        let position = "I love learning JavaScript".indexOf("JavaScript");
+
+        // 11- Use the string method "slice()" to extract a portion of the string "message".
+        let slicedMessage = message.slice(9, 19);
+
+        // 12- Declare a variable called "num1" and assign it a number.
+        let num1 = 10;
+
+        // 13- Declare a variable called "num2" and assign it another number.
+        let num2 = 20;
+
+        // 14- Use the arithmetic operator "+" to add num1 and num2.
+        let sum = num1 + num2;
+
+        // 15- Use the arithmetic operator "-" to subtract num1 from num2.
+        let difference = num2 - num1;
+
+        // Display results
+        document.getElementById("output").innerHTML = `
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>PI:</strong> ${PI}</p>
+            <p><strong>Age:</strong> ${age}</p>
+            <p><strong>Is Student:</strong> ${isStudent}</p>
+            <p><strong>Message:</strong> ${message}</p>
+            <p><strong>Introduction:</strong> ${introduction}</p>
+            <p><strong>Message Length:</strong> ${messageLength}</p>
+            <p><strong>Uppercase Message:</strong> ${upperCaseMessage}</p>
+            <p><strong>Lowercase Message:</strong> ${lowerCaseMessage}</p>
+            <p><strong>Position of "JavaScript":</strong> ${position}</p>
+            <p><strong>Sliced Message:</strong> ${slicedMessage}</p>
+            <p><strong>Num1:</strong> ${num1}</p>
+            <p><strong>Num2:</strong> ${num2}</p>
+            <p><strong>Sum (num1 + num2):</strong> ${sum}</p>
+            <p><strong>Difference (num2 - num1):</strong> ${difference}</p>
+        `;
+    </script>
+</body>
+</html>
