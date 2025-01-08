@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+   
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    .products-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap; 
+        margin-bottom: 20px;
+    }
+
+    .product {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        width: 150px;
+    }
+
+    .product img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    .product button {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .cart {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        width: 300px;
+    }
+
+    .cart h2 {
+        margin-bottom: 20px;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .cart-item-details {
+        display: flex;
+        align-items: center;
+    }
+
+    .cart-item-image {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+
+    .cart-item-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .quantity-controls {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .quantity-controls button {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .quantity-controls span {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .cart-item-price {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .remove-item {
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .cart-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    #save-cart {
+        padding: 10px;
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+    <div class="products-container">
+        <div class="product" data-id="1" data-name="iPhone 13 Pro" data-price="900" data-image="images/iphone 13 pro.jpg">
+            <img src="images/iphone 13 pro.jpg" alt="iPhone 13 Pro">
+            <h3>iPhone 13 Pro</h3>
+            <p>900 JD</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-id="2" data-name="Headset" data-price="150" data-image="images/headset.jpg">
+            <img src="images/headset.jpg" alt="Headset">
+            <h3>Headset</h3>
+            <p>150 JD</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-id="3" data-name="Keyboard" data-price="60" data-image="images/keyboard.jpg">
+            <img src="images/keyboard.jpg" alt="Keyboard">
+            <h3>Keyboard</h3>
+            <p>60 JD</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="total-price">0</span> JD
+        </div>
+        <button id="save-cart">Save</button>
+    </div>
+
+    <script src="store.js"></script>
+</body>
+</html>
