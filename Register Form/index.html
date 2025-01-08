@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.3/dist/css/boosted.min.css" rel="stylesheet" integrity="sha384-laZ3JUZ5Ln2YqhfBvadDpNyBo7w5qmWaRnnXuRwNhJeTEFuSdGbzl4ZGHAEnTozR" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/boosted@5.3.3/dist/js/boosted.bundle.min.js" integrity="sha384-3RoJImQ+Yz4jAyP6xW29kJhqJOE3rdjuu9wkNycjCuDnGAtC/crm79mLcwj1w2o/" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="col-lg-12 row">
+
+<div class="col-lg-4 ">
+
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        </div>
+        
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="images/img1.jpg"  class="d-block" style="width:100%">
+        </div>
+        <div class="carousel-item">
+            <img src="images/img2.jpg"  class="d-block" style="width:100%">
+        </div>
+        </div>
+</div>
+</div>
+
+<div class="col-lg-8 ">
+
+    <header style="border-bottom: 2px solid black ;">
+        <nav class="navbar navbar-expand "  >
+        <div class="container-fluid">
+        <div style="height: 30px;" class="navbar-brand col-9">
+            <a style="position: relative; top: 25px;" class="stretched-link " href="#">
+            <img style="height: 60px;" src="images/orange img.jpg"  alt="Boosted - Back to Home" loading="lazy">
+            </a>
+        </div>
+        
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Help</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Terms & Conditions</a>
+            </li>
+            
+            
+            </ul>
+        </div>
+        </div>
+    </nav>
+    </header>
+
+<section  class="col-12" style="justify-items: center;">
+    <form  action="/action_task1.html">
+
+    <h1 style="margin-top: 10px;">Create an account</h1>
+
+    <div class="mb-3 mt-3">
+        <label for="text" class="form-label is-required">Full Name</label>
+        <input id="namee" onblur="validateFullName(event)" type="text" class="form-control" required name="full_name">
+        <div class="form-text small" id="txname">Enter Your Full Name</div> 
+    </div>
+    
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label is-required">Email address</label>
+        <input type="email" class="form-control" id="email" onblur="validateEmail(event)" required name="email">
+        <div class="form-text small" id="txemail">Example: username@domain.com</div> 
+    </div>
+
+    
+    
+
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone" onblur="validatePhone(event)" required>
+            <div id="phoneMessage" class="form-text small">Phone number must start with 077 and contain exactly 10 digits.</div>
+        </div>
+        <div class="mb-3 mt-3">
+        <label  for="pwd" class="form-label is-required  ">Create Password</label>
+        <input id="pass" onblur="pas(event)" type="password" class="form-control" required name="psss"> 
+        <div id="masspass" class="form-text small">The Password should be between 6-18 characters.</div> 
+
+        <div class="mb-3 mt-3">
+            <label  for="pwd" class="form-label is-required">Verify Password</label>
+            <input onblur="equalpass(event)" id="pass2" type="password" class="form-control"  required name="pswd">
+            <div id="masspass2" class="form-text small">The Password should be between 6-18 characters.</div> 
+    
+
+        </div>
+        <div class="form-check mb-3">
+            <label class="form-check-label is-required">
+                <input class="form-check-input" type="checkbox" name="remember" required>I agree to the <a href="#">terms & conditions</a>.
+            </label>
+        </div>
+        <div class="form-check mb-3">
+            <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember" checked> Receive Coding Academy Newsletter.
+            </label>
+        </div>
+        <button onclick="sinin(event)" id="sinupp" style="width: 450px;height: 50px; margin-top: 20px;" type="button" class="btn btn-primary">
+            Sign Up
+        </button>
+        
+        <button onclick="haveacc()" style="width: 450px;height: 50px; margin-top: 20px;border: 2px solid;" type="button" class="btn btn-light">
+            Already have an account? Login
+        </button>
+        
+</form>
+</section>
+
+</div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
