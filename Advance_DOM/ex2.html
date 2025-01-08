@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+      background-color: black;
+      color: white;
+    }
+    input {
+      margin: 10px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Temperature Converter</h1>
+  <div>
+    <label for="celsius">Celsius:</label>
+    <input type="text" id="celsius" placeholder="Enter Celsius">
+  </div>
+  <div>
+    <label for="fahrenheit">Fahrenheit:</label>
+    <input type="text" id="fahrenheit" placeholder="Enter Fahrenheit">
+  </div>
+  <button id="convert">Convert</button>
+  <div class="error" id="error"></div>
+
+  <script>
+    document.getElementById('convert').addEventListener('click', () => {
+      const celsiusInput = document.getElementById('celsius');
+      const fahrenheitInput = document.getElementById('fahrenheit');
+      const errorDiv = document.getElementById('error');
+
+      let celsius = celsiusInput.value.trim();
+      let fahrenheit = fahrenheitInput.value.trim();
+
+      errorDiv.textContent = ''; // Clear previous error messages
+
+      if (celsius && fahrenheit) {
+        errorDiv.textContent = 'Please fill only one field at a time.';
+        return;
+      }
+
+      if (!celsius && !fahrenheit) {
+        errorDiv.textContent = 'Please enter a value in one of the fields.';
+        return;
+      }
+
+      if (celsius) {
+        if (isNaN(celsius)) {
+          errorDiv.textContent = 'Celsius must be a valid number.';
+          return;
+        }
+        fahrenheitInput.value = (parseFloat(celsius) * 9/5 + 32).toFixed(2);
+      } else {
+        if (isNaN(fahrenheit)) {
+          errorDiv.textContent = 'Fahrenheit must be a valid number.';
+          return;
+        }
+        celsiusInput.value = ((parseFloat(fahrenheit) - 32) * 5/9).toFixed(2);
+      }
+    });
+  </script>
+</body>
+</html>

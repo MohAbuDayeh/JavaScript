@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Filter</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Searchable Table</h1>
+    <input type="text" id="searchInput" placeholder="Search..." style="width: 100%; padding: 8px;">
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Occupation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mohammad Mahmoud</td>
+                <td>25</td>
+                <td>Engineer</td>
+            </tr>
+            <tr>
+                <td>Ali Mohammad</td>
+                <td>30</td>
+                <td>Designer</td>
+            </tr>
+            <tr>
+                <td>Mustafa Khaled</td>
+                <td>35</td>
+                <td>Developer</td>
+            </tr>
+            <tr>
+                <td>osama Ali</td>
+                <td>28</td>
+                <td>Manager</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const table = document.getElementById('dataTable');
+        const tbody = table.querySelector('tbody');
+
+        searchInput.addEventListener('input', () => {
+            const searchText = searchInput.value.toLowerCase();
+            const rows = tbody.getElementsByTagName('tr');
+
+            Array.from(rows).forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                let rowMatch = false;
+
+                Array.from(cells).forEach(cell => {
+                    const text = cell.textContent || cell.innerText;
+                    const lowerText = text.toLowerCase();
+
+                    if (searchText && lowerText.includes(searchText)) {
+                        rowMatch = true;
+                        cell.innerHTML = text.replace(new RegExp(`(${searchText})`, 'gi'), '<span class="highlight">$1</span>');
+                    } else {
+                        cell.innerHTML = text; 
+                    }
+                });
+
+                row.style.display = rowMatch ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
