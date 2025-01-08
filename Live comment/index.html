@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Request with JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            width: 200px;
+        }
+        button {
+            padding: 6px 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .comments {
+            margin-top: 20px;
+        }
+        .comment {
+            padding: 10px;
+            background: #f0f0f0;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            height: 200px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AJAX Request with JavaScript</h1>
+    <input type="text" id="commentInput" placeholder="Type your comment..." oninput="showLiveComment()">
+    <button onclick="addComment()">Send comment</button>
+
+    <h3>Get comment:</h3>
+    <div class="chat-box" id="commentsSection"></div>
+
+    <script>
+       
+        const commentsData = [];
+
+        function addComment() {
+            const input = document.getElementById('commentInput');
+            const commentText = input.value;
+
+            if (commentText.trim() !== "") {
+               
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "server.json", true); 
+                xhr.setRequestHeader("Content-Type", "application/json");
+
+                xhr.onload = function () {
+                    if (xhr.status === 200 || xhr.readyState === 4) {
+                        displayComments();
+                    }
+                };
+
+                commentsData.push({ comment: commentText });
+                xhr.send(JSON.stringify(commentsData));
+
+                input.value = "";
+                displayComments();
+            }
+        }
+
+        function displayComments() {
+            const commentsSection = document.getElementById('commentsSection');
+            commentsSection.innerHTML = ""; 
+
+            commentsData.forEach((commentObj) => {
+                const div = document.createElement('div');
+                div.className = 'comment';
+                div.textContent = commentObj.comment;
+                commentsSection.appendChild(div);
+            });
+        }
+
+        function showLiveComment() {
+            const input = document.getElementById('commentInput');
+            const commentsSection = document.getElementById('commentsSection');
+
+            const liveComment = document.createElement('div');
+            liveComment.className = 'comment';
+            liveComment.textContent = input.value;
+
+            if (commentsSection.firstChild) {
+                commentsSection.removeChild(commentsSection.firstChild);
+            }
+            commentsSection.insertBefore(liveComment, commentsSection.firstChild);
+        }
+    </script>
+</body>
+</html>
